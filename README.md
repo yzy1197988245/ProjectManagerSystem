@@ -19,6 +19,8 @@
 - 可生产环境中使用来管理项目(可以做修改来使得它更符合你的需求)
 - 可作为学习使用
 
+## 其他
+如果有童鞋暂时还不知道如何部署,请提 issue 告诉我
 
 ### License
  [MIT license](http://opensource.org/licenses/MIT)
