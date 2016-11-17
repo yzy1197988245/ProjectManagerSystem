@@ -27,20 +27,20 @@ class LoginController extends Controller
         $username = $request->input('username', '');
         $password = $request->input('password', '');
 //        $role = $request->input('role', '');
-
+//
         $m3_result = new M3Result();
-
+//
         if ($username == '' || $password == '') {
             $m3_result->status = 1;
             $m3_result->message = "帐号或密码不能为空!";
             return $m3_result->toJson();
         }
-
+//
         $admin = Admin::where('username', $username)->where('password', $password)->first();
-
+//
         if (!$admin) {
-            $m3_result->status = 2;
-            $m3_result->message = "帐号或密码错误!";
+            $m3_result->status = $username;
+            $m3_result->message = $password;
         } else {
             $m3_result->status = 0;
             $m3_result->message = $admin->role;
@@ -53,8 +53,8 @@ class LoginController extends Controller
     }
 
     public function toExit(Request $request)
-{
-    $request->session()->forget('admin');
-    return view('login');
-}
+    {
+        $request->session()->forget('admin');
+        return view('login');
+    }
 }
